@@ -1,0 +1,51 @@
+<div class="workers-info">
+  <table>
+    <thead class="blue">
+      <tr>
+        <th>№</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Salary</th>
+        <th>Work experience</th>
+        <th>Position</th>
+        <th>Departament</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let worker of workers">
+        <td>
+          {{ worker.id }}
+        </td>
+        <td>
+          {{ worker.firstName }}
+        </td>
+        <td>
+          {{ worker.lastName }}
+        </td>
+        <td>
+          {{ worker.salary }}
+        </td>
+        <td>
+          {{ worker.expierence }}
+          <span *ngIf="worker.expierence === 1">year</span
+          ><span *ngIf="worker.expierence !== 1">years</span>
+        </td>
+        <td>
+          {{ worker.position }}
+        </td>
+        <td>
+          {{ worker.departament }}
+        </td>
+        <td>
+          <button (click)="removeWorker(worker)">delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="total-salaries">
+    Total spent on salaries: <span class="bold">{{ salarySum(workers) }}</span>
+  </div>
+</div>
